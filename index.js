@@ -5,9 +5,10 @@ const qrcode = require('./qrCode');
 const translateCommand = require('./commands/translate');
 const textExtractCommand = require('./commands/textExtract');
 const quranCommand = require('./commands/quran');
+const convertVideoCommand = require('./commands/convertVideo');  // إضافة أمر التحويل
 
 const client = new Client({
-    authStrategy: new LocalAuth()
+    authStrategy: new LocalAuth()  // استخدام الجلسة للحفاظ على الاتصال بين الجلسات
 });
 
 // عرض كود QR
@@ -25,9 +26,10 @@ client.on('message', async (msg) => {
     const command = args[0].toLowerCase();
 
     // التعامل مع الأوامر بناءً على النوع
-    if (command === '!tr') translateCommand(msg, args);
-    else if (command === '!txt') textExtractCommand(msg);
-    else if (command === '!quran') quranCommand(msg, args);
+    if (command === '!tr') translateCommand(msg, args);  // أمر الترجمة
+    else if (command === '!txt') textExtractCommand(msg);  // أمر استخراج النص
+    else if (command === '!quran') quranCommand(msg, args);  // أمر القرآن
+    else if (command === '!convert') convertVideoCommand(msg);  // إضافة أمر التحويل
 });
 
 client.initialize();
