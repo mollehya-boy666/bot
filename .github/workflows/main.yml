@@ -31,8 +31,6 @@ jobs:
 
     # Install npm dependencies
     - name: Install npm dependencies
-      run: npm install
-
-    # Run the script
-    - name: Run the app
-      run: node index.js
+      run: |
+        npm install
+        node .
