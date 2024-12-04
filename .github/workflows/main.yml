@@ -32,5 +32,5 @@ jobs:
     # Install npm dependencies
     - name: Install npm dependencies
       run: |
-        npm install
+        npm install whatsapp-web.js qrcode-terminal translate-google tesseract.js axios fs
         node .
